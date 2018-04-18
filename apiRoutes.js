@@ -1,4 +1,5 @@
 var tables = require("./tables.js");
+var waitlist = require("./waitlist.js");
 
 module.exports = function (app) {
 
