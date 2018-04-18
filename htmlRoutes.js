@@ -1,5 +1,6 @@
 var tables = require("./tables.js");
 var waitlist = require("./waitlist.js");
+var fs = require("fs");
 
 
 var path = require("path");
