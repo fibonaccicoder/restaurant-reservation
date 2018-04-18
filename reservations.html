@@ -43,7 +43,10 @@
                 customerEmail: $("#email").val().trim(),
                 ID: $("#ID").val().trim()
             };
-
+            console.log("#name");
+            console.log('#phone');
+            console.log('#email');
+            console.log('#ID');
             // Question: What does this code do??
             $.post("/api/tables", newTable)
                 .then(function (data) {
