@@ -1,37 +1,34 @@
-app.get("/api/tables", function (req, res) {
-    return res.json(tables);
-});
+var tables = require("./tables.js");
 
-app.get("/api/waitlist", function (req, res) {
-    return res.json(waitlist);
-});
+module.exports = function (app) {
 
-
-//pushes first five tables to tables array, then following tables to waitlist array
-
-if (tables.length <= 4) {
-
-    app.post("api/tables", function (req, res) {
-        var newTable = req.body;
-
-        console.log(newTable);
-        tables.push(newTable);
-        res.json(newTable);
+    app.get("/api/tables", function (req, res) {
+        return res.json(tables);
     });
-} else {
-    app.post("api/waitlist", function (req, res) {
-        var newWaitlist = req.body;
 
-        console.log(waitlist);
-        waitlist.push(newWaitlist);
-        res.json(newWaitlist);
+    app.get("/api/waitlist", function (req, res) {
+        return res.json(waitlist);
     });
+
+
+    //pushes first five tables to tables array, then following tables to waitlist array
+
+    if (tables.length <= 4) {
+
+        app.post("api/tables", function (req, res) {
+            var newTable = req.body;
+
+            console.log(newTable);
+            tables.push(newTable);
+            res.json(newTable);
+        });
+    } else {
+        app.post("api/waitlist", function (req, res) {
+            var newWaitlist = req.body;
+
+            console.log(waitlist);
+            waitlist.push(newWaitlist);
+            res.json(newWaitlist);
+        });
+    }
 }
-
-//
-
-
-
-
-
-module.exports = apiRoutes;
